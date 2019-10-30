@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				margin: 0 auto;
+				position: relative;
+			}
+
+			#wrap div {
+				width: 800px;
+				/* height: 500px; */
+				margin: 30px auto;
+				position: absolute;
+				margin-top: 50px;
+				margin-left: 500px;
+				opacity: 0;
+				transition: all 1s;
+			}
+
+			#wrap img {
+				width: 100%;
+				/* height: 100%; */
+			}
+
+			#wrap #div1 {
+				opacity: 1;
+			}
+
+			#wrap img {}
+
+			ul {
+				/* width: 100px;
+				height: 50px;
+				background-color: #fff; */
+				position: absolute;
+				top: 470px;
+				left: 500px;
+
+			}
+
+			ul li {
+				list-style: none;
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				/* color: #000000; */
+				background-color: white;
+				margin: 0 auto;
+			}
+
+			/* 左箭头 */
+			#left {
+				position: absolute;
+				left: 530px;
+				top: 280px;
+			}
+
+			/* 右箭头 */
+			#right {
+				position: absolute;
+				left: 1250px;
+				top: 280px;
+			}
+
+			.choosePoint {
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="div1"><img src="img/slidesshow/eb988d91c61b97bc.jpg.webp.jpg" alt=""></div>
+			<div id="div2"><img src="img/slidesshow/eb988d91c61b97bc.jpg.webp.jpg" alt=""></div>
+			<div id="div3"><img src="img/313128.jpg" alt=""></div>
+			<div id="div4"><img src="img/slidesshow/5c237d847b36436d.jpg.webp.jpg" alt=""></div>
+			<div id="div5"><img src="img/317968.jpg" alt=""></div>
+			<ul>
+				<li id="circle1"></li>
+				<li id="circle2"></li>
+				<li id="circle3"></li>
+				<li id="circle4"></li>
+				<li id="circle5"></li>
+			</ul>
+		</div>
+		<div id="left">
+			<img src="img/1.png">
+		</div>
+		<div id="right">
+			<img src="img/222.png">
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var div1 = document.getElementById('div1');
+		var div2 = document.getElementById('div2');
+		var div3 = document.getElementById('div3');
+		var div4 = document.getElementById('div4');
+		var div5 = document.getElementById('div5');
+		var left = document.getElementById('left');
+		var right = document.getElementById('right');
+		// /存储6个图片在数组里面
+		var arrimg = [div1, div2, div3, div4, div5];
+
+		// var circle1=document.getElementById('circle1');
+		// var circle2=document.getElementById('circle2');
+		// var circle3=document.getElementById('circle3');
+		// var circle4=document.getElementById('circle4');
+		// var circle5=document.getElementById('circle5');
+		// //
+		// var arrcircle=[circle1,circle2,circle3,circle4,circle5];
+		var arrcircle = document.querySelectorAll("ul>li");
+		var x = 0;
+		left.onclick = function() {
+			x--;
+			if (x == -1) {
+				arrimg[0].style.opacity = '0';
+				// 消失之前的
+				arrimg[4].style.opacity = '1';
+				x = 4;
+			} else {
+				arrimg[x].style.opacity = '1';
+				// 消失之前的
+				arrimg[x + 1].style.opacity = '0';
+			}
+			for (var i = 0; i < arrcircle.length; i++) {
+				arrcircle[i].className = "";
+			}
+			arrcircle[x].className = "choosePoint";
+		}
+		right.onclick = function() {
+			x++;
+			if (x == 5) {
+				arrimg[4].style.opacity = '0';
+				// 消失之前的
+				arrimg[0].style.opacity = '1';
+				x = 0;
+			} else {
+				arrimg[x].style.opacity = '1';
+				// 消失之前的
+				arrimg[x - 1].style.opacity = '0';
+			}
+			for (var i = 0; i < arrcircle.length; i++) {
+				arrcircle[i].className = "";
+			}
+			arrcircle[x].className = "choosePoint";
+		}
+
+		for (var i = 0; i < arrcircle.length; i++) {
+			arrcircle[i].onmouseenter = function() {
+				this.style.width = "15px";
+				this.style.height = "15px";
+				this.style.borderRadius = "50%";
+			}
+		}
+		// 以下是考试题
+		console.log('5' + 2 * 5 - 12);
+		var m = 17,
+			n = 12;
+		m = m < n && n++;
+		console.log(n++);
+		console.log(n);
+		console.log(++n);
+		console.log(m);
+		var num1 = 14;
+		var num2 = 5 < 1 && --num1;
+		console.log(num1, num2);
+		
+		
+		
+		for (var i = 0; i < 10; i++) {
+			if (i % 4 == 0) {
+				break;
+			}
+			document.write(i);
+			
+		}
+		console.log(i);
+		
+		
+		var a=100;
+		var b=a++>100;
+		console.log(a,b);
+		
+	</script>
+</html>

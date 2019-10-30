@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		年：<input type="text" name="" id="year" value="" /><br />
+		月：<input type="text" name="" id="month" value="" /><br />
+		日：<input type="text" name="" id="day" value="" /><br />
+		<input type="button" name="" id="btn" value="总天数" /><br />
+	</body>
+	<script type="text/javascript">
+		var yearObj = document.getElementById('year');
+		var monthObj = document.getElementById('month');
+		var dayObj = document.getElementById('day');
+		var btn = document.getElementById('btn');
+		var yearValue, monthValue, dayValue; //定义来转number的年月天
+		var sumDays; //定义总天数
+		btn.onclick = function() {
+			sumDays = 0; //重置
+			yearValue = Number(yearObj.value);
+			monthValue = Number(monthObj.value);
+			dayValue = Number(dayObj.value);
+			// 假设该年是平年 定义每月的天数 使用数组存储12个月的天使
+			var dayMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			if (yearValue % 400 == 0 || (yearValue % 4 == 0 && yearValue % 100 != 0)) {
+				dayMonth[1] = 29; //二月份天数
+			}
+			//计算之前的所有月份天数之和
+			//计算该月
+			for (var i = 0; i < monthValue - 1; i++) {
+				sumDays += dayMonth[i];
+			}
+			//最后加上当月的天数
+			sumDays += dayValue;
+			alert(yearValue + '年' + monthValue + '月' + dayValue + '日是这一年的第'+sumDays+'天');
+
+		}
+	</script>
+</html>

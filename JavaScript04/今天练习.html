@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>冒泡排序</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+
+
+		var arrA = [45, 25, 3, 59, 15, 45, 58, 26, 15];
+		// var arrA=[  ];
+		// for (var i = 0; i < 20; i++) {
+		// 	arrA[i] = Math.floor(Math.random() * 91 + 10);45
+		// 	document.write( arrA[i] + '  ');
+		// }
+		
+		var temp;
+		for (var i = 0; i < arrA.length - 1; i++) {
+			//arrA.length - 1 - i 注意
+			for (var j = 0; j < arrA.length - 1 - i; j++) {
+				if (arrA[j] > arrA[j + 1]) {
+					temp = arrA[j];
+					arrA[j] = arrA[j + 1];
+					arrA[j + 1] = temp;
+
+				}
+			}
+		}
+		document.write (' <br /> '+'冒泡排序后'+arrA);
+		// for (var i = 0; i <20; i++) {
+		// 	// arrA[i] = Math.floor(Math.random() * 91 + 10);
+		// 	document.write( arrA[i] + '  ');
+		// }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

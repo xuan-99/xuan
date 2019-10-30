@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#name{
+				margin: 0 auto;
+				
+			}
+			#btn{
+				margin: 0 auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p id="name">姓名</p>
+		<input type="button" name="" id="btn" value="随机" />
+
+	</body>
+	<script type="text/javascript">
+		var nameArr = ['轩梦雨玩', '老爸做饭','老妈看电视 ','轩丰羽干活','就不告诉你','再来一次'];
+				var btnObj = document.getElementById('btn');
+				var nameObj = document.getElementById('name');
+				var index;
+				
+				btnObj.onclick = function() {
+					index = Math.floor(Math.random() * nameArr.length);
+					nameObj.innerHTML = nameArr[index];
+				}
+	</script>
+</html>

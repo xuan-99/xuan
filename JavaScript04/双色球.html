@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 800px;
+				height: 50px;
+				margin: 50px auto;
+				/* background-color: cornflowerblue; */
+			}
+
+			#wrap>div {
+				float: left;
+				width: 50px;
+				height: 50px;
+				border: 1px solid black;
+				/* vertical-align: baseline; */
+				margin-left: 50px;
+				border-radius: 25px;
+				text-align: center;
+				/* background-color: pink; */
+				color: pink;
+				line-height: 50px;
+
+
+			}
+
+			#wrap #div7 {
+				/* background-color: #6495ED; */
+				color: #6495ED;
+			}
+
+			#btn {
+				width: 100px;
+				height: 50px;
+				margin-left: 300px;
+				border: none;
+				background-color: #6495ED;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<!-- (#div$>img)*7	 -->
+			<div id="div1"></div>
+			<div id="div2"></div>
+			<div id="div3"></div>
+			<div id="div4"></div>
+			<div id="div5"></div>
+			<div id="div6"></div>
+			<div id="div7"></div><br><br><br>
+			<button type="button" id="btn">抽奖</button>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var div1 = document.getElementById('div1');
+		var div2 = document.getElementById('div2');
+		var div3 = document.getElementById('div3');
+		var div4 = document.getElementById('div4');
+		var div5 = document.getElementById('div5');
+		var div6 = document.getElementById('div6');
+		var div7 = document.getElementById('div7');
+		btn.onclick = function() {
+			// 随机7个数
+			var arrA = [];
+			//下标
+			var index = 0;
+			//去掉重复字母
+			while (arrA.length < 6) {
+				var a = 10;
+				var r = Math.floor(Math.random() * 33+ 1);
+				for (var x = 0; x < arrA.length; x++) {
+					if (arrA[x] == r) {
+						a = 100;
+						break;
+					}
+				}
+				if (a == 10) { 
+					arrA[index] = r;
+					index++;
+				}
+				
+			}
+			arrA[6] = Math.floor(Math.random() * 16 + 1);
+			// 冒泡排序
+			var temp;
+			for (var i = 0; i < 5; i++) {
+				for (var j = 0; j < 5 - i; j++) {
+					// 比较
+					if (arrA[j] > arrA[j + 1]) {
+						temp = arrA[j];
+						arrA[j] = arrA[j + 1];
+						arrA[j + 1] = temp;
+						while (arrA[j] == arrA[j + 1]) {
+
+						}
+
+					}
+				}
+			}
+			// document.write('<br />');
+			div1.innerHTML = arrA[0];
+			div2.innerHTML = arrA[1];
+			div3.innerHTML = arrA[2];
+			div4.innerHTML = arrA[3];
+			div5.innerHTML = arrA[4];
+			div6.innerHTML = arrA[5];
+			div7.innerHTML = arrA[6];
+
+		}
+
+
+
+
+
+		// document.write(arrA);
+	</script>
+</html>
